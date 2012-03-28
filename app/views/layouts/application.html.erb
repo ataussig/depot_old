@@ -14,12 +14,20 @@
 	</div>
 	<div id="columns">
 		<div id="side">
+			
+			<% if @cart %>
+				<%= hidden_div_if(@cart.line_items.empty?, :id => "cart") do %>
+					<%= render @cart %>
+				<% end %>
+			<% end %>
+			
 			<a href="http://www....">Home</a><br />
 			<a href="http://www..../faq">FAQ</a><br />
 			<a href="http://www..../news">News</a><br />
 			<a href="http://www..../contact">Contact</a><br /><br />
 			<a href="http://www.time.gov"><%= Time.now %></a><br /><br />
 			<%= 'Index has been accessed ' + pluralize(@count, 'time') + '.'%><br />
+		
 		</div>
 		<div id="main">
 			<%= yield %>

@@ -1,0 +1,9 @@
+# Replace content of the element on current page that has id 'cart' with the HTML of the rendered @cart partial.
+page.replace_html('cart', render(@cart))
+
+page[:cart].visual_effect :blind_down if @cart.total_items == 1
+
+# Apply a color flash to the element on the current page that has id 'current_item'
+page[:current_item].visual_effect :highlight,
+                                  :startcolor => "#88ff88",
+                                  :endcolor => "#114411"
